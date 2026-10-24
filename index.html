@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyNest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="loading">
+
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <div class="loader-ring"></div>
+  <span>Loading StudyNest</span>
+</div>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- SIDEBAR -->
+<aside id="sidebar">
+  <div class="logo">
+    <div class="logo-icon">📚</div>
+    <h1>StudyNest</h1>
+    <p>Study Companion</p>
+  </div>
+  <nav>
+    <button class="nav-btn active" onclick="navigate('home')" id="nav-home">
+      <span class="nav-icon">🏠</span><span>Home</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('planner')" id="nav-planner">
+      <span class="nav-icon">🧭</span><span>Planner</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('notes')" id="nav-notes">
+      <span class="nav-icon">📝</span><span>Notes</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('analytics')" id="nav-analytics">
+      <span class="nav-icon">📊</span><span>Analytics</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('goals')" id="nav-goals">
+      <span class="nav-icon">🎯</span><span>Goals</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('settings')" id="nav-settings">
+      <span class="nav-icon">⚙️</span><span>Settings</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('focus')" id="nav-focus">
+      <span class="nav-icon">🔎</span><span>Focus</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('timetable')" id="nav-timetable">
+      <span class="nav-icon">📅</span><span>Timetable</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('todo')" id="nav-todo">
+      <span class="nav-icon">✅</span><span>To-Do</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('timer')" id="nav-timer">
+      <span class="nav-icon">🍅</span><span>Pomodoro</span>
+    </button>
+  </nav>
+  <div class="sidebar-footer">
+    StudyNest v1.0<br>College Project
+  </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main id="main">
+
+  <!-- ═══ HOME PAGE ═══ -->
+  <section class="page active" id="page-home">
+
+    <div class="sn-hero fade-in-up">
+      <div class="sn-hero-geo sn-geo-1"></div>
+      <div class="sn-hero-geo sn-geo-2"></div>
+      <div class="sn-hero-geo sn-geo-3"></div>
+
+      <div class="sn-hero-inner">
+        <div class="sn-hero-badge fade-in-up" style="animation-delay:0.05s">
+          <span class="sn-badge-dot"></span>
+          Your All-in-One Study Companion
+        </div>
+        <h1 class="sn-hero-heading fade-in-up" style="animation-delay:0.12s">
+          Study Smarter,<br>Not Harder.
+        </h1>
+        <p class="sn-hero-sub fade-in-up" style="animation-delay:0.2s">
+          StudyNest brings your timetable, tasks, notes &amp; focus timer into one clean space — built for students who mean business.
+        </p>
+        <div class="sn-hero-actions fade-in-up" style="animation-delay:0.28s">
+          <button class="sn-btn-primary" onclick="navigate('timetable')">Get Started →</button>
+          <button class="sn-btn-secondary" onclick="navigate('notes')">Explore Tools</button>
+        </div>
+        <div class="sn-hero-greeting fade-in-up" style="animation-delay:0.36s">
+          <span id="hero-date" class="sn-greeting-date"></span>
+          <span class="sn-greeting-divider">·</span>
+          <span id="hero-greeting" class="sn-greeting-text">Good Morning! 👋</span>
+        </div>
+      </div>
+
+      <div class="sn-hero-quote-card fade-in-up" style="animation-delay:0.4s">
+        <div class="sn-quote-icon">"</div>
+        <div id="hero-quote" class="sn-quote-text">The secret of getting ahead is getting started.</div>
+        <div class="sn-quote-label">Daily Motivation</div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="sn-section-label fade-in-up" style="animation-delay:0.1s">What's Inside</div>
+    <div class="sn-features-grid">
+      <div class="sn-feat-card fade-in-up" style="animation-delay:0.08s" onclick="navigate('timetable')">
+        <div class="sn-feat-icon sn-feat-blue">📅</div>
+        <h3 class="sn-feat-title">Timetable</h3>
+        <p class="sn-feat-desc">Organise your weekly class schedule in a beautiful grid view. Add, edit and colour-code every slot.</p>
+        <span class="sn-feat-link">Open Timetable →</span>
+      </div>
+      <div class="sn-feat-card fade-in-up" style="animation-delay:0.14s" onclick="navigate('todo')">
+        <div class="sn-feat-icon sn-feat-amber">✅</div>
+        <h3 class="sn-feat-title">To-Do List</h3>
+        <p class="sn-feat-desc">Track assignments and deadlines with priorities, due dates and a satisfying check-off experience.</p>
+        <span class="sn-feat-link">Open To-Do →</span>
+      </div>
+      <div class="sn-feat-card fade-in-up" style="animation-delay:0.2s" onclick="navigate('notes')">
+        <div class="sn-feat-icon sn-feat-green">📝</div>
+        <h3 class="sn-feat-title">Notes</h3>
+        <p class="sn-feat-desc">Capture lecture summaries, quick thoughts and key ideas in a distraction-free notepad that saves locally.</p>
+        <span class="sn-feat-link">Open Notes →</span>
+      </div>
+      <div class="sn-feat-card fade-in-up" style="animation-delay:0.26s" onclick="navigate('timer')">
+        <div class="sn-feat-icon sn-feat-red">🍅</div>
+        <h3 class="sn-feat-title">Pomodoro Timer</h3>
+        <p class="sn-feat-desc">Stay in the zone with focused 25-minute work sessions and smart break intervals built on the Pomodoro method.</p>
+        <span class="sn-feat-link">Start Timer →</span>
+      </div>
+    </div>
+
+    <!-- Why section -->
+    <div class="sn-why-section fade-in-up" style="animation-delay:0.1s">
+      <div class="sn-why-text">
+        <div class="sn-section-label" style="margin-bottom:10px">Why StudyNest?</div>
+        <h2 class="sn-why-heading">Everything a student needs — nothing they don't.</h2>
+        <p class="sn-why-body">
+          Most productivity apps are bloated, complex or paywalled. StudyNest was built as a college project with one goal: give every student a clean, fast, offline-ready workspace that actually helps them study — without distractions.
+        </p>
+      </div>
+      <div class="sn-stats-grid">
+        <div class="sn-stat-card"><div class="sn-stat-icon">🎯</div><div class="sn-stat-label">All-in-one student tool</div></div>
+        <div class="sn-stat-card"><div class="sn-stat-icon">⚡</div><div class="sn-stat-label">Boost productivity</div></div>
+        <div class="sn-stat-card"><div class="sn-stat-icon">✨</div><div class="sn-stat-label">Simple &amp; clean UI</div></div>
+        <div class="sn-stat-card"><div class="sn-stat-icon">🔒</div><div class="sn-stat-label">100% offline, no login</div></div>
+      </div>
+    </div>
+
+    <!-- Today widgets -->
+    <div class="sn-section-label fade-in-up" style="animation-delay:0.05s">Today at a Glance</div>
+    <div class="home-grid sn-widgets-grid">
+      <div class="card sn-widget-card fade-in-up" style="animation-delay:0.08s">
+        <div class="home-widget-title">📅 Today's Classes</div>
+        <div id="home-classes-list">
+          <div class="empty-state"><div class="empty-icon">🗓️</div><p>No classes today.<br>Add some in Timetable!</p></div>
+        </div>
+        <button class="btn btn-ghost btn-sm" style="margin-top:12px;width:100%" onclick="navigate('timetable')">View Full Timetable →</button>
+      </div>
+      <div class="card sn-widget-card fade-in-up" style="animation-delay:0.14s">
+        <div class="home-widget-title">✅ Today's Tasks</div>
+        <div id="home-tasks-list">
+          <div class="empty-state"><div class="empty-icon">📝</div><p>Nothing logged yet.<br>Add tasks in To-Do!</p></div>
+        </div>
+        <button class="btn btn-ghost btn-sm" style="margin-top:12px;width:100%" onclick="navigate('todo')">Open To-Do →</button>
+      </div>
+      <div class="card quick-timer-card sn-widget-card fade-in-up" style="animation-delay:0.2s">
+        <div class="home-widget-title" style="margin-bottom:0">🍅 Focus Session</div>
+        <div class="timer-ring-mini"></div>
+        <div style="text-align:center">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:1.6rem;font-weight:700;color:var(--primary)" id="home-timer-preview">25:00</div>
+          <div style="font-size:0.78rem;color:var(--muted);margin-top:2px">Pomodoro ready</div>
+        </div>
+        <button class="btn btn-accent" onclick="navigate('timer')">▶ Start Focusing</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TIMETABLE PAGE ═══ -->
+  <section class="page" id="page-timetable">
+    <div class="pg-banner fade-in-up">
+      <div class="pg-banner-text">
+        <div class="pg-banner-eyebrow">Schedule</div>
+        <h2>Weekly Timetable</h2>
+        <p>Your class schedule at a glance. Click any slot to edit, or add new sessions.</p>
+        <div class="pg-banner-actions">
+          <button class="pg-btn-white" onclick="openClassModal()">+ Add Class</button>
+        </div>
+      </div>
+      <div class="pg-banner-icon">📅</div>
+    </div>
+
+    <div class="timetable-toolbar fade-in-up" style="animation-delay:0.1s">
+      <div class="week-nav">
+        <button onclick="changeWeek(-1)">‹</button>
+        <span class="week-label" id="week-label"></span>
+        <button onclick="changeWeek(1)">›</button>
+      </div>
+    </div>
+
+    <div class="timetable-wrap fade-in-up" style="animation-delay:0.15s">
+      <div class="tt-header" id="tt-header"></div>
+      <div class="tt-body">
+        <div class="tt-grid" id="tt-grid"></div>
+        <div class="current-time-line" id="current-time-line" style="display:none"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TODO PAGE ═══ -->
+  <section class="page" id="page-todo">
+    <div class="pg-banner fade-in-up">
+      <div class="pg-banner-text">
+        <div class="pg-banner-eyebrow">Tasks</div>
+        <h2>To-Do List</h2>
+        <p>Log, prioritise and tick off your academic tasks. Stay ahead of every deadline.</p>
+      </div>
+      <div class="pg-banner-icon">✅</div>
+    </div>
+
+    <div class="todo-top fade-in-up" style="animation-delay:0.1s">
+      <div class="todo-input-row">
+        <input type="text" class="todo-input-main" id="todo-input" placeholder="Add a new task… (press Enter)" onkeydown="if(event.key==='Enter') addTask()">
+        <button class="btn btn-primary" onclick="addTask()">+ Add Task</button>
+      </div>
+      <div class="todo-extra-row">
+        <input type="text" class="form-input" id="todo-subject" placeholder="Subject (optional)">
+        <input type="date" class="form-input" id="todo-due">
+        <select class="form-select" id="todo-priority">
+          <option value="low">🟢 Low Priority</option>
+          <option value="medium" selected>🟡 Medium Priority</option>
+          <option value="high">🔴 High Priority</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="todo-progress fade-in-up" style="animation-delay:0.15s">
+      <div class="progress-label">
+        <span id="progress-text">0 of 0 tasks completed today</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="fade-in-up" style="animation-delay:0.18s;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <div class="todo-filters">
+        <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+        <button class="filter-btn" onclick="setFilter('today',this)">Today</button>
+        <button class="filter-btn" onclick="setFilter('upcoming',this)">Upcoming</button>
+        <button class="filter-btn" onclick="setFilter('completed',this)">Completed</button>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="clearCompleted()" style="color:var(--danger);border-color:var(--danger)">🗑 Clear Completed</button>
+    </div>
+
+    <div id="todo-list-container" class="fade-in-up" style="animation-delay:0.22s"></div>
+  </section>
+
+  <!-- ═══ TIMER PAGE ═══ -->
+  <section class="page" id="page-timer">
+    <div class="pg-banner fade-in-up">
+      <div class="pg-banner-text">
+        <div class="pg-banner-eyebrow">Productivity</div>
+        <h2>Pomodoro Timer</h2>
+        <p>Structured 25-minute work sessions with smart breaks. Stay in the zone.</p>
+      </div>
+      <div class="pg-banner-icon">🍅</div>
+    </div>
+
+    <div class="timer-layout fade-in-up" style="animation-delay:0.12s">
+      <div class="timer-main-card">
+        <div class="timer-mode-tabs">
+          <button class="timer-mode-tab active" onclick="setTimerMode('work',this)">Work</button>
+          <button class="timer-mode-tab" onclick="setTimerMode('short',this)">Short Break</button>
+          <button class="timer-mode-tab" onclick="setTimerMode('long',this)">Long Break</button>
+        </div>
+
+        <div class="timer-ring-container">
+          <svg class="timer-svg" viewBox="0 0 240 240">
+            <circle class="timer-bg-circle" cx="120" cy="120" r="108"/>
+            <circle class="timer-progress-circle" id="timer-ring" cx="120" cy="120" r="108"
+              stroke-dasharray="678.6" stroke-dashoffset="0"/>
+          </svg>
+          <div class="timer-display">
+            <div class="timer-time" id="timer-display">25:00</div>
+            <div class="timer-mode-label" id="timer-mode-text">Work Session</div>
+          </div>
+        </div>
+
+        <div class="pomodoro-dots" id="pom-dots">
+          <div class="pom-dot"></div>
+          <div class="pom-dot"></div>
+          <div class="pom-dot"></div>
+          <div class="pom-dot"></div>
+        </div>
+
+        <div class="timer-controls">
+          <button class="btn-timer btn-timer-secondary" onclick="resetTimer()" title="Reset (R)">↺</button>
+          <button class="btn-timer btn-timer-main" id="timer-play-btn" onclick="toggleTimer()" title="Start/Pause (Space)">▶</button>
+          <button class="btn-timer btn-timer-secondary" onclick="skipSession()" title="Skip Session">⏭</button>
+        </div>
+
+        <div class="timer-notification-banner" id="notif-banner" style="display:none">
+          🔔 Enable notifications so you'll be alerted when sessions end.
+          <button class="btn btn-accent btn-sm" onclick="requestNotifPerm()" style="flex-shrink:0">Enable</button>
+        </div>
+      </div>
+
+      <div class="timer-side">
+        <div class="card" style="border-radius:18px">
+          <div class="home-widget-title">⚙️ Timer Settings</div>
+          <div class="settings-grid">
+            <div class="setting-item">
+              <label>Work (min)</label>
+              <input type="number" id="set-work" value="25" min="1" max="60" onchange="applySettings()">
+            </div>
+            <div class="setting-item">
+              <label>Short Break</label>
+              <input type="number" id="set-short" value="5" min="1" max="30" onchange="applySettings()">
+            </div>
+            <div class="setting-item" style="grid-column:1/-1">
+              <label>Long Break (min)</label>
+              <input type="number" id="set-long" value="15" min="5" max="60" onchange="applySettings()">
+            </div>
+          </div>
+          <div style="margin-top:14px;display:flex;align-items:center;justify-content:space-between">
+            <label style="font-size:0.82rem;color:var(--muted);font-weight:500">🔇 Mute Sound</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+              <input type="checkbox" id="mute-toggle" style="width:16px;height:16px;cursor:pointer">
+            </label>
+          </div>
+        </div>
+
+        <div class="card" style="flex:1;border-radius:18px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <div class="home-widget-title" style="margin-bottom:0">📋 Today's Sessions</div>
+            <button class="btn btn-ghost btn-sm" onclick="clearSessionLog()">Clear</button>
+          </div>
+          <div class="session-log-list" id="session-log">
+            <div class="empty-state" style="padding:20px 0"><div class="empty-icon">⏱️</div><p>No sessions yet.<br>Start your first Pomodoro!</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PLANNER PAGE ═══ -->
+  <section class="page" id="page-planner">
+    <div class="pg-banner fade-in-up">
+      <div class="pg-banner-text">
+        <div class="pg-banner-eyebrow">Overview</div>
+        <h2>Daily Planner</h2>
+        <p>Your unified view of today — tasks, schedule and goals in one place.</p>
+      </div>
+      <div class="pg-banner-icon">🧭</div>
+    </div>
+
+    <div class="planner-layout fade-in-up" style="animation-delay:0.1s">
+      <div class="planner-card">
+        <div class="planner-card-title">📌 Today's Focus</div>
+        <div id="planner-tasks-summary"></div>
+      </div>
+      <div class="planner-card">
+        <div class="planner-card-title">🗓️ Today's Schedule</div>
+        <div id="planner-schedule-summary"></div>
+      </div>
+      <div class="planner-card">
+        <div class="planner-card-title">🎯 Goal Snapshot</div>
+        <div id="planner-goals-summary"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NOTES PAGE ═══ -->
+  <section class="page" id="page-notes">
+    <div class="pg-banner fade-in-up">
+      <div class="pg-banner-text">
+        <div class="pg-banner-eyebrow">Capture</div>
+        <h2>Notes</h2>
+        <p>Capture ideas, summaries and key points. Everything saved locally on your device.</p>
+      </div>
+      <div class="pg-banner-icon">📝</div>
+    </div>
+
+    <div class="notes-layout fade-in-up" style="animation-delay:0.1s">
+      <div class="notes-editor-card">
+        <h3>✏️ Write a Note</h3>
+        <div class="todo-input-row">
+          <input class="todo-input-main" id="note-title" placeholder="Note title…">
+          <button class="btn btn-primary" onclick="saveNote()">Save Note</button>
+        </div>
+        <textarea id="note-body" class="form-input" style="min-height:200px;resize:vertical;margin-top:14px" placeholder="Start writing…"></textarea>
+      </div>
+
+      <div class="notes-list-card">
+        <h3 style="display:flex;align-items:center;justify-content:space-between">
+          <span>📚 Saved Notes</span>
+          <button class="btn btn-ghost btn-sm" onclick="clearAllNotes()" style="color:var(--danger);border-color:var(--danger);font-family:'DM Sans',sans-serif">Clear All</button>
+        </h3>
+        <div id="notes-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ANALYTICS PAGE ═══ -->
+  <section class="page" id="page-analytics">
+    <div class="pg-banner fade-in-up">
+      <div class="pg-banner-text">
+        <div class="pg-banner-eyebrow">Insights</div>
+        <h2>Analytics</h2>
+        <p>Track your goal completion rate and measure your productivity over time.</p>
+        <div class="pg-banner-actions">
+          <button class="pg-btn-white" onclick="updateAnalytics()">Refresh ↻</button>
+        </div>
+      </div>
+      <div class="pg-banner-icon">📊</div>
+    </div>
+
+    <div class="pg-stat-row fade-in-up" style="animation-delay:0.1s">
+      <div class="pg-stat-tile">
+        <div class="pg-stat-tile-value" id="total-goals">0</div>
+        <div class="pg-stat-tile-label">Total Goals</div>
+      </div>
+      <div class="pg-stat-tile">
+        <div class="pg-stat-tile-value" id="completed-goals">0</div>
+        <div class="pg-stat-tile-label">Completed</div>
+      </div>
+      <div class="pg-stat-tile">
+        <div class="pg-stat-tile-value" id="progress-percent">0%</div>
+        <div class="pg-stat-tile-label">Completion Rate</div>
+      </div>
+    </div>
+
+    <div class="analytics-grid fade-in-up" style="animation-delay:0.16s">
+      <div class="analytics-card">
+        <h3>📈 Goal Progress</h3>
+        <div class="analytics-progress-list">
+          <div class="analytics-prog-item">
+            <div class="analytics-prog-top"><span>Completed</span><span id="an-completed-label">0</span></div>
+            <div class="analytics-prog-bar"><div class="analytics-prog-fill green" id="analytics-bar" style="width:0%"></div></div>
+          </div>
+          <div class="analytics-prog-item">
+            <div class="analytics-prog-top"><span>Pending</span><span id="an-pending-label">0</span></div>
+            <div class="analytics-prog-bar"><div class="analytics-prog-fill amber" id="analytics-bar-pending" style="width:100%"></div></div>
+          </div>
+        </div>
+        <div class="analytics-message-banner" id="analytics-message" style="margin-top:20px">🚀 Start completing your goals!</div>
+      </div>
+
+      <div class="analytics-card">
+        <h3>🍩 Breakdown</h3>
+        <div class="analytics-ring-wrap">
+          <canvas id="goalsChart" width="180" height="180"></canvas>
+          <div class="analytics-donut-label" id="an-donut-pct">0%</div>
+          <div class="analytics-donut-sub">of goals completed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ GOALS PAGE ═══ -->
+  <section class="page" id="page-goals">
+    <div class="pg-banner fade-in-up">
+      <div class="pg-banner-text">
+        <div class="pg-banner-eyebrow">Ambitions</div>
+        <h2>Goals</h2>
+        <p>Set your targets, track your progress and celebrate every win.</p>
+      </div>
+      <div class="pg-banner-icon">🎯</div>
+    </div>
+
+    <div class="goals-layout fade-in-up" style="animation-delay:0.1s">
+      <div>
+        <div class="goal-input-card">
+          <h3>➕ Add a New Goal</h3>
+          <div style="display:flex;gap:10px;">
+            <input type="text" id="goal-input" class="todo-input-main" placeholder="What do you want to achieve?">
+            <button class="btn btn-primary" onclick="addGoal()">Add</button>
+          </div>
+        </div>
+        <div class="goals-list-card">
+          <h3>📋 Your Goals</h3>
+          <div id="goals-list"></div>
+        </div>
+      </div>
+
+      <div class="goals-sidebar-card">
+        <h3>📊 Progress</h3>
+        <div class="goals-progress-ring-wrap">
+          <div class="goals-ring-label" id="goals-ring-pct">0%</div>
+          <div class="goals-ring-sub">goals completed</div>
+          <div style="width:100%;margin-top:8px">
+            <div class="progress-bar-wrap" style="height:10px">
+              <div class="progress-bar-fill" id="goals-sidebar-bar" style="width:0%"></div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
+          <div class="pg-stat-tile">
+            <div class="pg-stat-tile-value" id="goals-total-count">0</div>
+            <div class="pg-stat-tile-label">Total Goals</div>
+          </div>
+          <div class="pg-stat-tile">
+            <div class="pg-stat-tile-value" id="goals-done-count">0</div>
+            <div class="pg-stat-tile-label">Completed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SETTINGS PAGE ═══ -->
+  <section class="page" id="page-settings">
+    <div class="pg-banner fade-in-up">
+      <div class="pg-banner-text">
+        <div class="pg-banner-eyebrow">Preferences</div>
+        <h2>Settings</h2>
+        <p>Customise your StudyNest experience — theme, timer durations and data controls.</p>
+      </div>
+      <div class="pg-banner-icon">⚙️</div>
+    </div>
+
+    <div class="settings-layout fade-in-up" style="animation-delay:0.1s">
+      <div class="settings-card">
+        <div class="settings-card-header">
+          <div class="settings-card-icon">🌙</div>
+          <div>
+            <div class="settings-card-title">Appearance</div>
+            <div class="settings-card-subtitle">Toggle dark mode</div>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-row-label">Dark Mode</div>
+            <div class="settings-row-hint">Easier on the eyes at night</div>
+          </div>
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+            <input type="checkbox" id="dark-toggle" onchange="toggleDarkMode()" style="width:18px;height:18px;cursor:pointer;accent-color:var(--accent)">
+            <span style="font-size:0.82rem;font-weight:600;color:var(--muted)">Enable</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <div class="settings-card-header">
+          <div class="settings-card-icon">⏱️</div>
+          <div>
+            <div class="settings-card-title">Timer Durations</div>
+            <div class="settings-card-subtitle">Adjust Pomodoro intervals</div>
+          </div>
+        </div>
+        <div class="settings-grid" style="margin-top:4px">
+          <div class="setting-item"><label>Work (min)</label><input type="number" id="set-work-settings" value="25" min="1" max="60" onchange="applySettings()"></div>
+          <div class="setting-item"><label>Short Break</label><input type="number" id="set-short-settings" value="5" min="1" max="30" onchange="applySettings()"></div>
+          <div class="setting-item" style="grid-column:1/-1"><label>Long Break (min)</label><input type="number" id="set-long-settings" value="15" min="5" max="60" onchange="applySettings()"></div>
+        </div>
+      </div>
+
+      <div class="settings-card" style="border:1.5px solid rgba(192,57,43,0.2)">
+        <div class="settings-card-header">
+          <div class="settings-card-icon" style="background:rgba(192,57,43,0.1)">⚠️</div>
+          <div>
+            <div class="settings-card-title" style="color:var(--danger)">Danger Zone</div>
+            <div class="settings-card-subtitle">Irreversible actions</div>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-row-label">Reset All Data</div>
+            <div class="settings-row-hint">Clears tasks, notes, goals and classes</div>
+          </div>
+          <button class="btn btn-danger btn-sm" onclick="resetAppData()">Reset</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOCUS MODE PAGE ═══ -->
+  <section class="page" id="page-focus">
+    <div class="focus-banner fade-in-up">
+      <div class="focus-banner-text">
+        <h3>🔎 Focus Mode</h3>
+        <p>Distraction-free timer. Close everything and get to work.</p>
+      </div>
+      <button class="pg-btn-ghost-white" onclick="navigate('home')">← Exit Focus</button>
+    </div>
+
+    <div class="focus-layout fade-in-up" style="animation-delay:0.12s">
+      <div class="focus-card card" style="border-radius:24px;width:100%;max-width:560px;margin:0 auto">
+        <div class="timer-ring-container" style="margin:24px auto 22px;max-width:380px;">
+          <svg class="timer-svg" viewBox="0 0 240 240">
+            <circle class="timer-bg-circle" cx="120" cy="120" r="108"/>
+            <circle class="timer-progress-circle" id="focus-timer-ring" cx="120" cy="120" r="108"
+              stroke-dasharray="678.6" stroke-dashoffset="0"/>
+          </svg>
+          <div class="timer-display" style="position:absolute;inset:0;">
+            <div class="timer-time" id="focus-timer-display">25:00</div>
+            <div class="timer-mode-label" id="focus-mode-text">Work Session</div>
+          </div>
+        </div>
+        <div class="timer-controls" style="justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px">
+          <button class="btn-timer btn-timer-secondary" onclick="resetTimer()">↺</button>
+          <button class="btn-timer btn-timer-main" onclick="toggleTimer()">▶</button>
+          <button class="btn-timer btn-timer-secondary" onclick="skipSession()">⏭</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- CLASS MODAL -->
+<div class="modal-overlay" id="class-modal">
+  <div class="modal">
+    <h3 id="class-modal-title">Add Class</h3>
+    <div class="form-row">
+      <label>Subject Name *</label>
+      <input type="text" id="cls-subject" placeholder="e.g. Data Structures" maxlength="40">
+    </div>
+    <div class="form-2col">
+      <div class="form-row">
+        <label>Day *</label>
+        <select id="cls-day">
+          <option value="Mon">Monday</option>
+          <option value="Tue">Tuesday</option>
+          <option value="Wed">Wednesday</option>
+          <option value="Thu">Thursday</option>
+          <option value="Fri">Friday</option>
+          <option value="Sat">Saturday</option>
+          <option value="Sun">Sunday</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Location</label>
+        <input type="text" id="cls-location" placeholder="Room / Online">
+      </div>
+    </div>
+    <div class="form-2col">
+      <div class="form-row">
+        <label>Start Time *</label>
+        <input type="time" id="cls-start">
+      </div>
+      <div class="form-row">
+        <label>End Time *</label>
+        <input type="time" id="cls-end">
+      </div>
+    </div>
+    <div class="form-row">
+      <label>Color</label>
+      <div class="color-options" id="color-opts">
+        <div class="color-opt selected" style="background:#1B3A6B" data-color="#1B3A6B" onclick="selectColor(this)"></div>
+        <div class="color-opt" style="background:#E8A020" data-color="#E8A020" onclick="selectColor(this)"></div>
+        <div class="color-opt" style="background:#2E8B57" data-color="#2E8B57" onclick="selectColor(this)"></div>
+        <div class="color-opt" style="background:#C0392B" data-color="#C0392B" onclick="selectColor(this)"></div>
+        <div class="color-opt" style="background:#8E44AD" data-color="#8E44AD" onclick="selectColor(this)"></div>
+        <div class="color-opt" style="background:#2980B9" data-color="#2980B9" onclick="selectColor(this)"></div>
+        <div class="color-opt" style="background:#D35400" data-color="#D35400" onclick="selectColor(this)"></div>
+        <div class="color-opt" style="background:#16A085" data-color="#16A085" onclick="selectColor(this)"></div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeClassModal()">Cancel</button>
+      <button class="btn btn-danger btn-sm" id="cls-delete-btn" style="display:none" onclick="deleteClass()">Delete</button>
+      <button class="btn btn-primary" onclick="saveClass()">Save Class</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM DIALOG -->
+<div class="confirm-overlay" id="confirm-overlay">
+  <div class="confirm-box">
+    <h4 id="confirm-title">Are you sure?</h4>
+    <p id="confirm-msg">This action cannot be undone.</p>
+    <div class="confirm-actions">
+      <button class="btn btn-ghost" onclick="closeConfirm()">Cancel</button>
+      <button class="btn btn-danger" id="confirm-ok">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toast-container"></div>
+
+<!-- External Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- App Script -->
+<script src="script.js"></script>
+
+</body>
+</html>
